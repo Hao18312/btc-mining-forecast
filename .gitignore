@@ -1,0 +1,23 @@
+# Ignore data and results
+data/
+results/
+
+# Environment / secrets
+.env
+kaggle.json
+*.pem
+*.key
+
+# Python cache files
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# IDE / editor files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Virtual environment
+.venv/

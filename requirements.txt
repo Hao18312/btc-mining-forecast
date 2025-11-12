@@ -1,0 +1,17 @@
+matplotlib
+# Basic data analysis and API access
+pandas
+numpy
+requests
+
+# Optional: environment variables support
+python-dotenv
+
+# For testing
+pytest
+
+# Optional: for modeling and forecasting
+statsmodels
+prophet
+xgboost
+lightgbm
