@@ -16,18 +16,28 @@ The project combines time-series forecasting (ARIMA / Prophet) and machine learn
 
 ---
 # Results 
-_describe your findings_
+The project currently supports:
+--Successful connection to Blockchain.com Query API for retrieving real-time blockchain metrics like difficulty and block height.
+--Integration with CoinGecko API to obtain live BTC/USD price data.
+--Verified sample data written to the data/ folder as proof of successful API connection.
+Model-based forecasting and mining revenue analysis are under development.
 
 # Installation
-- _describe what API keys, user must set where (in .enve) to be able to run the project._
-- _describe what special python packages you have used_
+- No API keys are required for light usage of CoinGecko or Blockchain.com APIs.
+- Python packages used:
+requests — for HTTP requests
+pandas — for data handling
+matplotlib — for plotting (for future analysis)
+python-dotenv — for reading environment variables
+prophet — for time-series forecasting (not currently used)
 
-# Running analysis 
-_update these instructions_
-
-
+# Running analysis
 From `src/` directory run:
 
-`python main.py `
+`tests.py `
 
-Results will appear in `results/` folder. All obtained will be stored in `data/`
+This will:
+
+Fetch real-time difficulty and price from APIs
+
+Save small sample .json files to the data/ directory as a connection test
