@@ -1,7 +1,7 @@
-# Bitcoin Mining Difficulty and Revenue Forecast
-This project analyzes and forecasts Bitcoin mining difficulty and miner revenue using public blockchain APIs and network data.  
-The goal is to predict how mining difficulty and network hashrate evolve over time, and to estimate expected miner income (in USD) under different BTC price and electricity cost scenarios.  
-The project combines time-series forecasting (ARIMA / Prophet) and machine learning models (LightGBM / XGBoost).
+# Bitcoin Mining Pool Concentration and Price Forecast
+This project analyzes the decentralization of Bitcoin mining over time, using Herfindahl-Hirschman Index (HHI) and daily mining pool shares. It also explores the relationship between mining concentration and BTC/USD price using historical time series data and XGBoost forecasting.
+
+The goal is to measure how centralized or decentralized mining has become over time and to forecast future trends in HHI and Bitcoin price.
 
 ---
 
@@ -16,28 +16,41 @@ The project combines time-series forecasting (ARIMA / Prophet) and machine learn
 
 ---
 # Results 
-The project currently supports:
---Successful connection to Blockchain.com Query API for retrieving real-time blockchain metrics like difficulty and block height.
---Integration with CoinGecko API to obtain live BTC/USD price data.
---Verified sample data written to the data/ folder as proof of successful API connection.
-Model-based forecasting and mining revenue analysis are under development.
+This project generates the following analyses and visualizations in the results/ folder:
+
+1. pool_distribution.png: Daily stacked bar chart of blocks mined by each pool.
+
+2. hhi_over_time.png: HHI trend chart measuring mining concentration.
+
+3. market_price.png: Daily BTC/USD price chart.
+
+4. hhi_forecast.png: Forecasted HHI values using XGBoost.
+
+5. price_forecast.png: Forecasted Bitcoin price using XGBoost.
 
 # Installation
-- No API keys are required for light usage of CoinGecko or Blockchain.com APIs.
-- Python packages used:
-requests — for HTTP requests
-pandas — for data handling
-matplotlib — for plotting (for future analysis)
-python-dotenv — for reading environment variables
-prophet — for time-series forecasting (not currently used)
+No API keys are required.
+
+Python dependencies
+
+1. pandas — data manipulation
+
+2. matplotlib — plotting
+
+3. requests — optional for API access
+
+4. xgboost — machine learning regression model
 
 # Running analysis
-From `src/` directory run:
+From the src/ directory, run:
 
-`tests.py `
+python main.py
 
 This will:
+Load JSON data from data/pools-timeseries.json.
 
-Fetch real-time difficulty and price from APIs
+Generate mining pool share breakdown and compute daily HHI.
 
-Save small sample .json files to the data/ directory as a connection test
+Train XGBoost models to forecast HHI and BTC price until 2026.
+
+Save all results and plots to the results/ folder.

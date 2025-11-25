@@ -5,18 +5,13 @@ from typing import Any, Dict, Optional, Union
 
 import requests
 
-# ----------------------------
 # Paths & constants
-# ----------------------------
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = PROJECT_ROOT / "data"
 RESULTS_DIR = PROJECT_ROOT / "results"
 DEFAULT_TIMEOUT = 15
 
-
-# ----------------------------
 # Small helpers
-# ----------------------------
 def ensure_dirs() -> None:
     DATA_DIR.mkdir(parents=True, exist_ok=True)
     RESULTS_DIR.mkdir(parents=True, exist_ok=True)
@@ -77,10 +72,7 @@ def http_get_json(
     assert last
     raise last
 
-
-# ----------------------------
 # Blockchain.com Query API
-# ----------------------------
 def _coerce_number(s: str) -> Union[int, float, str]:
     """Try to parse numeric string to int/float. Return original if not numeric."""
     try:
@@ -109,10 +101,7 @@ def fetch_blockchain_metric(
     text = http_get_text(url, timeout=timeout)
     return _coerce_number(text.strip())
 
-
-# ----------------------------
 # CoinGecko (simple/price)
-# ----------------------------
 def fetch_coingecko_simple_price(
     ids: str = "bitcoin",
     vs_currencies: str = "usd",
@@ -132,9 +121,7 @@ def fetch_coingecko_simple_price(
     return http_get_json(url, params=params, timeout=timeout, max_retries=max_retries)
 
 
-# ----------------------------
 # Demo
-# ----------------------------
 def _demo() -> None:
     ensure_dirs()
 
